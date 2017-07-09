@@ -49,7 +49,11 @@ weight = np.ones(n)
 for i in range(100000):
     if i%1000==0 and i!=0:
         print ('iteration : %d' %(i))
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 806297e81e07709972f0018832d3436dfdf1d3fa
     for data, label in zip(train_data, train_label):
         acc = 0.
         weight_tmp = np.zeros(n)
