@@ -46,6 +46,7 @@ learning_rate = 0.00001
 m, n = train_data[0].shape
 weight = np.ones(n)
 
+
 for i in range(100000):
     if i%1000==0 and i!=0:
         print ('iteration : %d' %(i))
