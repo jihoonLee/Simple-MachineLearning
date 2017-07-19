@@ -1,5 +1,6 @@
 import os
 import numpy as np
+from pathlib import Path
 import math
 import random
 
@@ -40,9 +41,9 @@ def load(path):
     test_data, test_label = shuffle_data(pos, neg, 50)
     return train_data, train_label, test_data, test_label
 
-path = os.path.dirname(os.path.abspath(__file__)) + '/data/KidCreative.csv'
+path = str(Path(os.path.dirname(os.path.abspath(__file__))).parent) +'/data/KidCreative.csv'
 train_data, train_label, test_data, test_label = load(path)
-learning_rate = 0.00001
+learning_rate = 0.001
 m, n = train_data[0].shape
 weight = np.ones(n)
 

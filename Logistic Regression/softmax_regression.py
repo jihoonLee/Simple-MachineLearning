@@ -54,19 +54,18 @@ def add_bias(arr):
     return data
 
 def load(path):
-    train_data = np.genfromtxt(path+'/train_data.csv', delimiter=',', dtype=float)
+    train_data = np.genfromtxt(path+'/data/train_data.csv', delimiter=',', dtype=float)
     train_data = add_bias(train_data)
-    train_label = np.genfromtxt(path+'/train_label.csv', delimiter=',', dtype=int)
+    train_label = np.genfromtxt(path+'/data/train_label.csv', delimiter=',', dtype=int)
 
-    test_data = np.genfromtxt(path+'/test_data.csv', delimiter=',', dtype=float)
+    test_data = np.genfromtxt(path+'/data/test_data.csv', delimiter=',', dtype=float)
     test_data = add_bias(test_data)
-    test_label = np.genfromtxt(path+'/test_label.csv', delimiter=',', dtype=int)
+    test_label = np.genfromtxt(path+'/data/test_label.csv', delimiter=',', dtype=int)
 
     return train_data, train_label, test_data, test_label
 
-
-path = os.path.dirname(os.path.abspath(__file__)) +'/data'
-train_data, train_label, test_data, test_label = load(path)
+path = Path(os.path.dirname(os.path.abspath(__file__))).parent
+train_data, train_label, test_data, test_label = load(str(path))
 
 intput_size = train_data.shape[1]
 output_size = 10

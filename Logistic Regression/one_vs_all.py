@@ -1,5 +1,6 @@
 import os
 import numpy as np
+from pathlib import Path
 
 learning_rate = 0.1
 iteration = 10000
@@ -32,13 +33,13 @@ def add_bias(arr):
     return data
 
 def load(path):
-    train_data = np.genfromtxt(path+'/train_data.csv', delimiter=',', dtype=float)
+    train_data = np.genfromtxt(path+'/data/train_data.csv', delimiter=',', dtype=float)
     train_data = add_bias(train_data)
-    train_label = np.genfromtxt(path+'/train_label.csv', delimiter=',', dtype=float)
+    train_label = np.genfromtxt(path+'/data/train_label.csv', delimiter=',', dtype=float)
 
-    test_data = np.genfromtxt(path+'/test_data.csv', delimiter=',', dtype=float)
+    test_data = np.genfromtxt(path+'/data/test_data.csv', delimiter=',', dtype=float)
     test_data = add_bias(test_data)
-    test_label = np.genfromtxt(path+'/test_label.csv', delimiter=',', dtype=float)
+    test_label = np.genfromtxt(path+'/data/test_label.csv', delimiter=',', dtype=float)
 
     return train_data, train_label, test_data, test_label
 
@@ -53,8 +54,8 @@ def test(classifier, test_data, test_label):
             count+=1
     return count / test_label.shape[0]
 
-path = os.path.dirname(os.path.abspath(__file__)) +'/data'
-train_data, train_label, test_data, test_label = load(path)
+path = Path(os.path.dirname(os.path.abspath(__file__))).parent
+train_data, train_label, test_data, test_label = load(str(path))
 
 train_size, intput_size = train_data.shape
 logistic_arr = []

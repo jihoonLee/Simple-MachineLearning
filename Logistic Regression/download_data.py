@@ -69,5 +69,5 @@ if not os.path.exists(path):
 #download('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', path + '/train-label.gz')
 #download('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', path + '/test-image.gz')
 #download('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', path + '/test-label.gz')
-extract(path+'/train-image.gz', path+'/train-label.gz', path+'/train_data_resize.csv', path+'/train_label.csv', resize=True )
-extract(path+'/test-image.gz', path+'/test-label.gz', path+'/test_data_resize.csv', path+'/test_label.csv', resize=True )
+extract(path+'../data/train-image.gz', path+'../data/train-label.gz', path+'/train_data_resize.csv', path+'/train_label.csv', resize=True )
+extract(path+'../test-image.gz', path+'../test-label.gz', path+'/test_data_resize.csv', path+'/test_label.csv', resize=True )
